@@ -1,8 +1,8 @@
 # JuliaFormatter.jl
 
-[![Documenter: stable](https://img.shields.io/badge/docs-stable-blue.svg)](https://domluna.github.io/JuliaFormatter.jl/stable/)
-[![Documenter: dev](https://img.shields.io/badge/docs-dev-blue.svg)](https://domluna.github.io/JuliaFormatter.jl/dev/)
-![Build Status](https://github.com/domluna/JuliaFormatter.jl/actions/workflows/ci.yml/badge.svg)
+[![Docs latest](https://img.shields.io/badge/docs-latest-blue.svg)](https://www.heptazhou.com/JLfmt.jl/latest/)
+[![CI status](https://github.com/Heptazhou/jlfmt.jl/actions/workflows/CI.yml/badge.svg)](https://github.com/Heptazhou/jlfmt.jl/actions/workflows/CI.yml)
+[![codecov.io](https://codecov.io/gh/Heptazhou/jlfmt.jl/branch/master/graph/badge.svg)](https://app.codecov.io/gh/Heptazhou/jlfmt.jl)
 
 Width-sensitive formatter for Julia code. Inspired by gofmt, refmt, and black.
 
@@ -11,7 +11,7 @@ Width-sensitive formatter for Julia code. Inspired by gofmt, refmt, and black.
 ## Installation
 
 ```julia
-]add JuliaFormatter
+]add https://github.com/Heptazhou/jlfmt.jl#stable
 ```
 
 ## Quick Start

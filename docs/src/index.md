@@ -15,7 +15,7 @@ Width-sensitive formatter for Julia code. Inspired by gofmt, refmt, black, and p
 ## Installation
 
 ```julia
-]add JuliaFormatter
+]add https://github.com/Heptazhou/jlfmt.jl#stable
 ```
 
 ## Quick Start
