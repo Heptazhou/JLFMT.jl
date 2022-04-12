@@ -41,28 +41,28 @@ DefaultStyle() = DefaultStyle(nothing)
 function options(s::DefaultStyle)
     return (;
         indent = 4,
-        margin = 92,
-        always_for_in = false,
-        whitespace_typedefs = false,
+        margin = 256,
+        always_for_in = true,
+        whitespace_typedefs = true,
         whitespace_ops_in_indices = false,
         remove_extra_newlines = false,
-        import_to_using = false,
+        import_to_using = true,
         pipe_to_function_call = false,
         short_to_long_function_def = false,
         always_use_return = false,
         whitespace_in_kwargs = true,
         annotate_untyped_fields_with_any = true,
         format_docstrings = false,
-        align_struct_field = false,
-        align_assignment = false,
-        align_conditional = false,
-        align_pair_arrow = false,
+        align_struct_field = true,
+        align_assignment = true,
+        align_conditional = true,
+        align_pair_arrow = true,
         conditional_to_if = false,
-        normalize_line_endings = "auto",
-        align_matrix = false,
+        normalize_line_endings = "unix",
+        align_matrix = true,
         join_lines_based_on_source = false,
         trailing_comma = true,
-        indent_submodule = false,
+        indent_submodule = true,
         separate_kwargs_with_semicolon = false,
     )
 end
@@ -161,14 +161,14 @@ The number of spaces used for an indentation.
 
 ### `margin`
 
-> default: `92`
+> default: `256`
 
 The maximum length of a line. Code exceeding this margin will
 be formatted across multiple lines.
 
 ### `always_for_in`
 
-> default: `false`
+> default: `true`
 
 If true, `=` is always replaced with `in` if part of a `for` loop condition.
 For example, `for i = 1:10` will be transformed to `for i in 1:10`. Set
@@ -176,7 +176,7 @@ this to `nothing` to leave the choice to the user.
 
 ### `whitespace_typedefs`
 
-> default: `false`
+> default: `true`
 
 If true, whitespace is added for type definitions. Make this `true`
 if you prefer `Union{A <: B, C}` to `Union{A<:B,C}`.
@@ -239,7 +239,7 @@ prior to the initial or after the final piece of code.
 
 ### `import_to_using`
 
-> default: `false`
+> default: `true`
 
 If true, `import` expressions are rewritten to `using` expressions
 in the following cases:
@@ -374,7 +374,7 @@ Markdown is formatted with [`CommonMark`](https://github.com/MichaelHatherly/Com
 
 ### `align_*`
 
-> default: `false`
+> default: `true`
 
 See `Custom Alignment` documentation.
 
@@ -394,7 +394,7 @@ end
 
 ### `normalize_line_endings`
 
-> default: `"auto"`
+> default: `"unix"`
 
 One of `"unix"` (normalize all `\r\n` to `\n`), `"windows"` (normalize all `\n` to `\r\n`), `"auto"` (automatically
 choose based on which line ending is more common in the file).
@@ -491,7 +491,7 @@ end
 
 ### `indent_submodule`
 
-> default: `false`
+> default: `true`
 
 When set to `true`, submodule(s) appearing in the same file will be indented.
 

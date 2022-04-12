@@ -1,27 +1,27 @@
 Base.@kwdef struct Options
     indent::Int = 4
     margin::Int = 92
-    always_for_in::Union{Bool,Nothing} = false
-    whitespace_typedefs::Bool = false
+    always_for_in::Union{Bool,Nothing} = true
+    whitespace_typedefs::Bool = true
     whitespace_ops_in_indices::Bool = false
     remove_extra_newlines::Bool = false
-    import_to_using::Bool = false
+    import_to_using::Bool = true
     pipe_to_function_call::Bool = false
     short_to_long_function_def::Bool = false
     always_use_return::Bool = false
     whitespace_in_kwargs::Bool = true
     annotate_untyped_fields_with_any::Bool = true
     format_docstrings::Bool = false
-    align_struct_field::Bool = false
-    align_assignment::Bool = false
-    align_conditional::Bool = false
-    align_pair_arrow::Bool = false
+    align_struct_field::Bool = true
+    align_assignment::Bool = true
+    align_conditional::Bool = true
+    align_pair_arrow::Bool = true
     conditional_to_if::Bool = false
-    normalize_line_endings::String = "auto"
-    align_matrix::Bool = false
+    normalize_line_endings::String = "unix"
+    align_matrix::Bool = true
     join_lines_based_on_source::Bool = false
     trailing_comma::Union{Bool,Nothing} = true
-    indent_submodule::Bool = false
+    indent_submodule::Bool = true
     separate_kwargs_with_semicolon::Bool = false
 end
 
