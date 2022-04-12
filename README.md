@@ -43,14 +43,14 @@ The number of spaces used for an indentation.
 
 ### `margin`
 
-> default: `92`
+> default: `256`
 
 The maximum length of a line. Code exceeding this margin will
 be formatted across multiple lines.
 
 ### `always_for_in`
 
-> default: `false`
+> default: `true`
 
 If true, `=` is always replaced with `in` if part of a `for` loop condition.
 For example, `for i = 1:10` will be transformed to `for i in 1:10`. Set
@@ -58,7 +58,7 @@ this to `nothing` to leave the choice to the user.
 
 ### `whitespace_typedefs`
 
-> default: `false`
+> default: `true`
 
 If true, whitespace is added for type definitions. Make this `true`
 if you prefer `Union{A <: B, C}` to `Union{A<:B,C}`.
@@ -121,7 +121,7 @@ prior to the initial or after the final piece of code.
 
 ### `import_to_using`
 
-> default: `false`
+> default: `true`
 
 If true, `import` expressions are rewritten to `using` expressions
 in the following cases:
@@ -256,7 +256,7 @@ Markdown is formatted with [`CommonMark`](https://github.com/MichaelHatherly/Com
 
 ### `align_*`
 
-> default: `false`
+> default: `true`
 
 See `Custom Alignment` documentation.
 
@@ -276,7 +276,7 @@ end
 
 ### `normalize_line_endings`
 
-> default: `"auto"`
+> default: `"unix"`
 
 One of `"unix"` (normalize all `\r\n` to `\n`), `"windows"` (normalize all `\n` to `\r\n`), `"auto"` (automatically
 choose based on which line ending is more common in the file).
@@ -366,7 +366,7 @@ end
 
 ### `indent_submodule`
 
-> default: `false`
+> default: `true`
 
 When set to `true`, submodule(s) appearing in the same file will be indented.
 
@@ -420,7 +420,7 @@ f(a; b=1)
 
 ### `surround_whereop_typeparameters`
 
-> default: `true`
+> default: `false`
 
 Surrounds type parameters with curly brackets when set to `true` if the brackets are not
 already present.
@@ -466,3 +466,4 @@ For integration with other editors:
   - [Emacs](https://codeberg.org/FelipeLema/julia-formatter.el)
   - [VSCode](https://github.com/singularitti/vscode-julia-formatter/)
   - [Vim](https://github.com/kdheepak/JuliaFormatter.vim)
+

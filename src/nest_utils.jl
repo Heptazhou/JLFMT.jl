@@ -35,7 +35,7 @@ should return a value other than `nothing`.
 """
 function walk(f, fst::FST, s::State)
     stop = f(fst, s)
-    (stop !== nothing || is_leaf(fst)) && return
+    (!isnothing(stop) || is_leaf(fst)) && return
     walk(f, fst.nodes, s, fst.indent)
 end
 

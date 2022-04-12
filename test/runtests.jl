@@ -3,6 +3,40 @@ using JuliaFormatter: DefaultStyle, YASStyle, Options, options, CONFIG_FILE_NAME
 using CSTParser
 using Test
 
+import JuliaFormatter: options
+function options(s::DefaultStyle)
+    return (;
+        indent = 4,
+        margin = 92,
+        always_for_in = false,
+        whitespace_typedefs = false,
+        whitespace_ops_in_indices = false,
+        remove_extra_newlines = false,
+        import_to_using = false,
+        pipe_to_function_call = false,
+        short_to_long_function_def = false,
+        always_use_return = false,
+        whitespace_in_kwargs = true,
+        annotate_untyped_fields_with_any = true,
+        format_docstrings = false,
+        align_struct_field = false,
+        align_assignment = false,
+        align_conditional = false,
+        align_pair_arrow = false,
+        conditional_to_if = false,
+        normalize_line_endings = "auto",
+        align_matrix = false,
+        join_lines_based_on_source = false,
+        trailing_comma = true,
+        indent_submodule = false,
+        separate_kwargs_with_semicolon = false,
+        surround_whereop_typeparameters = true,
+    )
+end
+function DefaultOption(; margin = 92)
+    Options(4, margin, false, false, false, false, false, false, false, false, true, true, false, false, false, false, false, false, "auto", false, false, true, false, false, true)
+end
+
 fmt1(s; i = 4, m = 80, kwargs...) =
     JuliaFormatter.format_text(s; kwargs..., indent = i, margin = m)
 fmt1(s, i, m; kwargs...) = fmt1(s; kwargs..., i = i, m = m)
@@ -32,16 +66,16 @@ minimalfmt(str; i = 4, m = 92, kwargs...) =
     fmt(str; i = i, m = m, style = MinimalStyle(), kwargs...)
 minimalfmt(str, i::Int, m::Int; kwargs...) = minimalfmt(str; i = i, m = m, kwargs...)
 
-function run_pretty(text::String; style = DefaultStyle(), opts = Options())
+function run_pretty(text::String; style = DefaultStyle(), opts = DefaultOption())
     d = JuliaFormatter.Document(text)
     s = JuliaFormatter.State(d, opts)
     x = CSTParser.parse(text, true)
     t = JuliaFormatter.pretty(style, x, s)
     t
 end
-run_pretty(text::String, margin::Int) = run_pretty(text, opts = Options(margin = margin))
+run_pretty(text::String, margin::Int) = run_pretty(text, opts = DefaultOption(margin = margin))
 
-function run_nest(text::String; opts = Options(), style = DefaultStyle())
+function run_nest(text::String; opts = DefaultOption(), style = DefaultStyle())
     d = JuliaFormatter.Document(text)
     s = JuliaFormatter.State(d, opts)
     x = CSTParser.parse(text, true)
@@ -49,9 +83,9 @@ function run_nest(text::String; opts = Options(), style = DefaultStyle())
     JuliaFormatter.nest!(style, t, s)
     t, s
 end
-run_nest(text::String, margin::Int) = run_nest(text, opts = Options(margin = margin))
+run_nest(text::String, margin::Int) = run_nest(text, opts = DefaultOption(margin = margin))
 
-function run_format(text::String; style = DefaultStyle(), opts = Options())
+function run_format(text::String; style = DefaultStyle(), opts = DefaultOption())
     d = JuliaFormatter.Document(text)
     s = JuliaFormatter.State(d, opts)
     cst = CSTParser.parse(text, true)
